@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MZProducts Envíos a Cuba</title>
+    <style>
+        body {
+            background-color: #fcf6e9; /* Color crema idéntico */
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .logo-img {
+            width: 120px; /* Tamaño del carrito con llave */
+            margin-bottom: 10px;
+        }
+        .brand-name {
+            color: #c0392b; /* Rojo MZProducts */
+            font-size: 28px;
+            font-weight: bold;
+            margin: 0;
+            text-transform: uppercase;
+        }
+        .brand-sub {
+            color: #2c3e50; /* Azul servicios */
+            letter-spacing: 3px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            width: 100%;
+            max-width: 450px;
+        }
+        h2 { color: #444; font-size: 20px; margin-bottom: 25px; }
+        .input-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: bold; color: #555; }
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #fdfdfd;
+            box-sizing: border-box;
+        }
+        .error-msg { color: #d35400; font-size: 13px; margin-top: 5px; font-weight: bold; }
+        .btn-group { display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px; }
+        button {
+            padding: 12px 25px;
+            border-radius: 8px;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .btn-next, .btn-final { background-color: #1a5276; color: white; }
+        .btn-back { background-color: #7f8c8d; color: white; }
+        #step2 { display: none; } /* Oculto al inicio */
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div style="font-size: 50px;">🛒🔧</div> 
+        <p class="brand-name">MZProducts</p>
+        <p class="brand-sub">ENVÍOS A CUBA</p>
+    </div>
+
+    <div id="step1" class="card">
+        <h2>Datos del titular o propietario</h2>
+        <div class="input-group">
+            <label>Nombre y apellidos</label>
+            <input type="text" placeholder="Ejemplo">
+            <div class="error-msg">Este campo es obligatorio</div>
+        </div>
+        <div class="input-group">
+            <label>No. de carnet</label>
+            <input type="text" placeholder="Ejemplo">
+            <div class="error-msg">Este campo es obligatorio</div>
+        </div>
+        <div class="input-group">
+
